@@ -152,7 +152,7 @@ alias gsd='git stash drop'
 
 # Remote commands
 alias gx='git remote'
-alias gxl='git remote list -v'
+alias gxl='git remote -v'
 alias gxa='git remote add'
 alias gxr='git remote remove'
 
