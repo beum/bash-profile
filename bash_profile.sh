@@ -144,6 +144,8 @@ alias gr='git rebase'
 alias grd='git rebase dev'
 alias gri='rebase(){ git rebase -i HEAD~$1; }; rebase' # Interactive rebase
 
+alias gcp='git cherry-pick'
+
 # Stash commands
 alias gsl='git stash list'
 alias gss='git stash save'
