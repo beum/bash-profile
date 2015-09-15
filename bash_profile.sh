@@ -75,20 +75,39 @@ On_ICyan='\e[0;106m'    # Cyan
 On_IWhite='\e[0;107m'   # White
 
 # Code for PS1
+# Based on: http://stackoverflow.com/a/13003854/170413
 
-function parse_git_dirty {
-  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+find_git_branch() {
+  local branch
+  if branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); then
+    if [[ "$branch" == "HEAD" ]]; then
+      branch='detached*'
+    fi
+    git_branch="($branch)"
+  else
+    git_branch=""
+  fi
 }
 
-function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/(\1)/"
+find_git_dirty() {
+  local status=$(git status --porcelain 2> /dev/null)
+  if [[ "$status" != "" ]]; then
+    git_dirty='*'
+  else
+    git_dirty=''
+  fi
 }
 
-PS1="\u@\h \w $Cyan$(parse_git_branch)$BIRed$(parse_git_dirty)$Color_Off\$ "
+txtred='\e[0;31m' # Red
+txtcyn='\e[0;36m' # Cyan
+txtrst='\e[0m'    # Text Reset
 
+PROMPT_COMMAND="find_git_branch; find_git_dirty; $PROMPT_COMMAND"
+export PS1="\u@\h \W \[$Cyan\]\$git_branch\[$BIRed\]\$git_dirty\[$Color_Off\]\$ "
 
 # Alias for normal bash commands
 alias ll='ls -lha'
+alias sbp='source ~/.bash_profile'
 
 
 # Aliases for git basic commands
