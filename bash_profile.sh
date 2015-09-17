@@ -170,3 +170,6 @@ alias gplu='git pull upstream'
 alias gps='git push'
 alias gpso='git push origin'
 alias gpsu='git push upstream'
+
+# Activate NVM upon start
+~/.nvm/nvm.sh
