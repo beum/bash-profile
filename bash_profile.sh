@@ -118,7 +118,7 @@ alias gs='git status'
 alias gl='git log --stat --graph'
 
 alias gb='git branch'
-alias gbd='git branch --D'
+alias gbd='git branch -D'
 
 alias gco='git checkout'
 alias gcb='git checkout -b'
