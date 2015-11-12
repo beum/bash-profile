@@ -171,5 +171,8 @@ alias gps='git push'
 alias gpso='git push origin'
 alias gpsu='git push upstream'
 
+# Add a local gulp shortcut
+alias gulp='node node_modules/.bin/gulp'
+
 # Activate NVM upon start
 ~/.nvm/nvm.sh
