@@ -175,4 +175,11 @@ alias gpsu='git push upstream'
 alias gulp='node node_modules/.bin/gulp'
 
 # Activate NVM upon start
-~/.nvm/nvm.sh
+. ~/.nvm/nvm.sh
+nvm use v4.2.6
+
+# Ansible vault alias
+alias ave='vault(){ ansible-vault encrypt --vault-password-file=$1 $2; }; vault'
+alias avd='vault(){ ansible-vault decrypt --vault-password-file=$1 $2; }; vault'
+
+
