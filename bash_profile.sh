@@ -184,4 +184,5 @@ alias avd='vault(){ ansible-vault decrypt --vault-password-file=$1 $2; }; vault'
 
 # Hostname searches
 alias gip='getip(){ cat /etc/hosts | grep $1 | grep $2; }; getip'
+alias login='tello(){ a=`gip $1 $2 | sed "s/^.* //"`; ssh -i secrets/aws_provisioning.pem "ubuntu@${a}"; }; tello'
 
