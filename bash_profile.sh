@@ -176,10 +176,12 @@ alias gulp='node node_modules/.bin/gulp'
 
 # Activate NVM upon start
 . ~/.nvm/nvm.sh
-nvm use v4.2.6
+nvm use stable
 
 # Ansible vault alias
 alias ave='vault(){ ansible-vault encrypt --vault-password-file=$1 $2; }; vault'
 alias avd='vault(){ ansible-vault decrypt --vault-password-file=$1 $2; }; vault'
 
+# Hostname searches
+alias gip='getip(){ cat /etc/hosts | grep $1 | grep $2; }; getip'
 
